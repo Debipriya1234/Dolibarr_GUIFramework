@@ -14,7 +14,7 @@ import com.dolibarr.erp.objectrepositoryutility.CustomerPage;
 import com.dolibarr.erp.objectrepositoryutility.HomePage;
 import com.dolibarr.erp.objectrepositoryutility.NewCommercialProposalForCustomerPage;
 import com.dolibarr.erp.objectrepositoryutility.NewThirdPartyPage;
-import com.dolibarr.erp.objectrepositoryutility.Third_PartiesPage;
+import com.dolibarr.erp.objectrepositoryutility.ThirdPartiesPage;
 
 public class CreateNewCustomerWithNewProposalAndValidateProposalTest extends BaseClass 
 {
@@ -42,7 +42,7 @@ public class CreateNewCustomerWithNewProposalAndValidateProposalTest extends Bas
         /**
          * Navigating to new customer link
          */
-        Third_PartiesPage tpp = new Third_PartiesPage(driver);
+        ThirdPartiesPage tpp = new ThirdPartiesPage(driver);
         tpp.getNewCustomerLink().click();
         /**
          * Creating new customer

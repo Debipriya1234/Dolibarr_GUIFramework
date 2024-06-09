@@ -12,9 +12,9 @@ import com.dolibarr.erp.objectrepositoryutility.CustomerPage;
 import com.dolibarr.erp.objectrepositoryutility.HomePage;
 import com.dolibarr.erp.objectrepositoryutility.ListOfCustomerPage;
 import com.dolibarr.erp.objectrepositoryutility.NewThirdPartyPage;
-import com.dolibarr.erp.objectrepositoryutility.Third_PartiesPage;
-import com.dolibarr.erp.objectrepositoryutility.createOrderPage;
-import com.dolibarr.erp.objectrepositoryutility.salesOrderPage;
+import com.dolibarr.erp.objectrepositoryutility.ThirdPartiesPage;
+import com.dolibarr.erp.objectrepositoryutility.CreateOrderPage;
+import com.dolibarr.erp.objectrepositoryutility.SalesOrderPage;
 
 public class CreateOrderAndValidateForCustomerTest extends BaseClass
 {
@@ -42,7 +42,7 @@ public class CreateOrderAndValidateForCustomerTest extends BaseClass
         /**
          * Creating new customer
          */
-        Third_PartiesPage t=new Third_PartiesPage(driver);
+        ThirdPartiesPage t=new ThirdPartiesPage(driver);
     	t.getNewCustomerLink().click();
         NewThirdPartyPage ntp = new NewThirdPartyPage(driver);
         ntp.getThirdPartyNameTextField().sendKeys(CName);
@@ -53,7 +53,7 @@ public class CreateOrderAndValidateForCustomerTest extends BaseClass
         /**
          * Navigating to list of customer link
          */
-        Third_PartiesPage tpp = new Third_PartiesPage(driver);
+        ThirdPartiesPage tpp = new ThirdPartiesPage(driver);
         tpp.getListOfCustomersLink().click();
         ListOfCustomerPage lcp= new ListOfCustomerPage(driver);
         lcp.getSearchCust().sendKeys(CName,Keys.ENTER);
@@ -71,13 +71,13 @@ public class CreateOrderAndValidateForCustomerTest extends BaseClass
         /**
          * Create Order for customer
          */
-        createOrderPage cop= new createOrderPage(driver);
+        CreateOrderPage cop= new CreateOrderPage(driver);
         cop.getRef_customer().sendKeys(RefCust);
         cop.getSave().click();
         /**
          * Verify draft status for order
          */
-        salesOrderPage sop= new salesOrderPage(driver);
+        SalesOrderPage sop= new SalesOrderPage(driver);
         String draftStatus = sop.getStatus().getText();
         Assert.assertEquals(draftStatus, status);
         Reporter.log(draftStatus+"status is verified",true);

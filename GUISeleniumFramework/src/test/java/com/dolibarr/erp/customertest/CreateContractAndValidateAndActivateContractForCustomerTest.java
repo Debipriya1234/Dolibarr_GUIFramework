@@ -18,7 +18,7 @@ import com.dolibarr.erp.objectrepositoryutility.HomePage;
 import com.dolibarr.erp.objectrepositoryutility.ListOfCustomerPage;
 import com.dolibarr.erp.objectrepositoryutility.NewContractForCustomerPage;
 import com.dolibarr.erp.objectrepositoryutility.NewThirdPartyPage;
-import com.dolibarr.erp.objectrepositoryutility.Third_PartiesPage;
+import com.dolibarr.erp.objectrepositoryutility.ThirdPartiesPage;
 
 public class CreateContractAndValidateAndActivateContractForCustomerTest extends BaseClass {
 	
@@ -44,7 +44,7 @@ public class CreateContractAndValidateAndActivateContractForCustomerTest extends
         /**
          * Creating new customer
          */
-        Third_PartiesPage t=new Third_PartiesPage(driver);
+        ThirdPartiesPage t=new ThirdPartiesPage(driver);
     	t.getNewCustomerLink().click();
         NewThirdPartyPage ntp = new NewThirdPartyPage(driver);
         ntp.getThirdPartyNameTextField().sendKeys(CName);
@@ -55,7 +55,7 @@ public class CreateContractAndValidateAndActivateContractForCustomerTest extends
         /**
          * Navigating to list of customer link
          */
-        Third_PartiesPage tpp = new Third_PartiesPage(driver);
+        ThirdPartiesPage tpp = new ThirdPartiesPage(driver);
         tpp.getListOfCustomersLink().click();
         ListOfCustomerPage lcp= new ListOfCustomerPage(driver);
         lcp.getSearchCust().sendKeys(CName,Keys.ENTER);

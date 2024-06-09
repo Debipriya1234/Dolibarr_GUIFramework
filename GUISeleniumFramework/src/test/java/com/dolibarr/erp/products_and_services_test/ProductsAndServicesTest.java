@@ -1,4 +1,4 @@
-package com.dolibarr.erp.products_and_services;
+package com.dolibarr.erp.products_and_services_test;
 
 import java.util.ArrayList;
 
@@ -23,7 +23,7 @@ public class ProductsAndServicesTest extends BaseClass {
 	ExcelUtility excelUtility = new ExcelUtility();
 	JavaUtility javaUtility = new JavaUtility();
 
-	@Test(priority = -1)
+	@Test(enabled = true)
 	public void CreateWarehouseAndProductAndVerify() throws Throwable {
 
 		ArrayList<String> warehouseData = new ArrayList<String>();
@@ -57,7 +57,7 @@ public class ProductsAndServicesTest extends BaseClass {
 		Assert.assertTrue(driver.findElement(By.xpath(path)).isDisplayed());
 	}
 
-	@Test(priority = 0)
+	@Test(enabled = true)
 	public void CreateServicesAndVerifyInList() throws Throwable {
 
 		ArrayList<String> serviceData = new ArrayList<String>();

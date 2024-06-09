@@ -12,12 +12,12 @@ import com.dolibarr.erp.objectrepositoryutility.CommercialPageInfoPage;
 import com.dolibarr.erp.objectrepositoryutility.HomePage;
 import com.dolibarr.erp.objectrepositoryutility.ListOfProspectPage;
 import com.dolibarr.erp.objectrepositoryutility.NewThirdPartyPage;
-import com.dolibarr.erp.objectrepositoryutility.Third_PartiesPage;
-import com.dolibarr.erp.objectrepositoryutility.newContractforProspectPage;
-import com.dolibarr.erp.objectrepositoryutility.prosepectInfoTestPage;
-import com.dolibarr.erp.objectrepositoryutility.prospectPage;
+import com.dolibarr.erp.objectrepositoryutility.ThirdPartiesPage;
+import com.dolibarr.erp.objectrepositoryutility.NewContractForProspectPage;
+import com.dolibarr.erp.objectrepositoryutility.ProsepectInfoTestPage;
+import com.dolibarr.erp.objectrepositoryutility.ProspectDetailPage;
 @Listeners(com.dolibarr.erp.generic.listenerutility.ListImpClass.class)
-public class createContractandActivateConTest extends BaseClass{
+public class CreateContractandActivateConTest extends BaseClass{
 @Test
 public void createContractandActivateConTest() throws Throwable  {
 	/**
@@ -38,7 +38,7 @@ public void createContractandActivateConTest() throws Throwable  {
 	 */
 	HomePage h=new HomePage(driver);
 	h.getThirdPartiesMenu().click();
-	Third_PartiesPage t=new Third_PartiesPage(driver);
+	ThirdPartiesPage t=new ThirdPartiesPage(driver);
 	t.getNewProspectLink().click();
 	NewThirdPartyPage ntp=new NewThirdPartyPage(driver);
 	ntp.getThirdPartyNameTextField().sendKeys(PName);
@@ -62,17 +62,17 @@ public void createContractandActivateConTest() throws Throwable  {
 	/**
 	 * navigating new prospectinfotestpage
 	 */
-	prosepectInfoTestPage pi=new prosepectInfoTestPage(driver);
+	ProsepectInfoTestPage pi=new ProsepectInfoTestPage(driver);
 	pi.getProspectInfo().click();
 	/**
 	 * click on create Contract
 	 */
-	prospectPage pp=new prospectPage(driver);
+	ProspectDetailPage pp=new ProspectDetailPage(driver);
 	pp.getCreateContract().click();
 	/**
 	 * navigating newContractProspectPage
 	 */
-	newContractforProspectPage ncfpp=new newContractforProspectPage(driver);
+	NewContractForProspectPage ncfpp=new NewContractForProspectPage(driver);
 	ncfpp.getRefCustomer().sendKeys(refcus);
 	ncfpp.getCreate().click();
 	CommercialPageInfoPage cpip =new CommercialPageInfoPage(driver);

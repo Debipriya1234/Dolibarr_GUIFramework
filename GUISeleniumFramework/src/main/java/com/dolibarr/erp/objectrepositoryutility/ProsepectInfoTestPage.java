@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class prosepectInfoTestPage {
-	public prosepectInfoTestPage(WebDriver driver) {
+public class ProsepectInfoTestPage {
+	public ProsepectInfoTestPage(WebDriver driver) {
 		PageFactory.initElements(driver,this);
 	}
 
