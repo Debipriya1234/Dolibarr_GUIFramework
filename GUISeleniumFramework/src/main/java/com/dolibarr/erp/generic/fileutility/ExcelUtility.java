@@ -1,52 +1,59 @@
 package com.dolibarr.erp.generic.fileutility;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+
 /**
  * 
  * @author Deepak
  *
  */
 public class ExcelUtility {
-	
+
 	/**
 	 * read data from Excel based row and column index
+	 * 
 	 * @param sheetName
 	 * @param rowNum
 	 * @param celNum
 	 * @return
 	 * @throws Throwable
 	 */
-	public String getDataFromExcel(String sheetName , int rowNum , int celNum) throws Throwable {
-		
+	public String getDataFromExcel(String sheetName, int rowNum, int celNum) throws Throwable {
+
 		FileInputStream fis = new FileInputStream("./testdata/testScriptdata.xlsx");
-		Workbook wb =  WorkbookFactory.create(fis);
-	    String data = wb.getSheet(sheetName).getRow(rowNum).getCell(celNum).getStringCellValue();
-	    wb.close();
+		Workbook wb = WorkbookFactory.create(fis);
+		String data = wb.getSheet(sheetName).getRow(rowNum).getCell(celNum).getStringCellValue();
+		wb.close();
 		return data;
 	}
+
 	/**
 	 * get the used row count based on sheet name
+	 * 
 	 * @param sheetName
 	 * @return
 	 * @throws Throwable
 	 */
-	public int getRowcount(String sheetName ) throws Throwable {
+	public int getRowcount(String sheetName) throws Throwable {
 		FileInputStream fis = new FileInputStream("./testdata/testScriptdata.xlsx");
-		Workbook wb =  WorkbookFactory.create(fis);
+		Workbook wb = WorkbookFactory.create(fis);
 		int rowCount = wb.getSheet(sheetName).getLastRowNum();
-		 wb.close();
+		wb.close();
 		return rowCount;
 	}
+
 	/**
 	 * write data back to excel based on cell index
+	 * 
 	 * @param sheetName
 	 * @param rowNum
 	 * @param celNum
@@ -54,17 +61,17 @@ public class ExcelUtility {
 	 * @throws EncryptedDocumentException
 	 * @throws IOException
 	 */
-	public void setDataIntoExcel(String sheetName , int rowNum , int celNum , String data) throws EncryptedDocumentException, IOException {
+	public void setDataIntoExcel(String sheetName, int rowNum, int celNum, String data)
+			throws EncryptedDocumentException, IOException {
 		FileInputStream fis = new FileInputStream("./testdata/testScriptdata.xlsx");
-		Workbook wb =  WorkbookFactory.create(fis);
+		Workbook wb = WorkbookFactory.create(fis);
 		wb.getSheet(sheetName).getRow(rowNum).createCell(celNum);
-		
+
 		FileOutputStream fos = new FileOutputStream("./testdata/testScriptdata.xlsx");
 		wb.write(fos);
 		wb.close();
-	} 
-	
-	
+	}
+
 	/**
 	 * This method is used to fetch the data from the excel based on key
 	 * 
@@ -77,7 +84,7 @@ public class ExcelUtility {
 	public String getDataFromExcel(String excelPath, String sheetName, String testcaseName, String requiredKey)
 			throws EncryptedDocumentException, IOException {
 		FileInputStream fis = new FileInputStream("./testdata/testScriptdata.xlsx");
-		Workbook wb =  WorkbookFactory.create(fis);
+		Workbook wb = WorkbookFactory.create(fis);
 		Sheet sheet = wb.getSheet(sheetName);
 		String value = "";
 		String actualTestCaseName = "";
@@ -112,11 +119,37 @@ public class ExcelUtility {
 		return value;
 	}
 
+	/**
+	 * 
+	 * @param sheetName
+	 * @param rowNum
+	 * @param cellNum
+	 * @return
+	 * @throws Throwable
+	 */
+	public ArrayList<String> getArrayListFromExcel(String sheetName, int rowNum, int cellNum) throws Throwable {
+		ArrayList<String> data = new ArrayList<String>();
+		Row row = getRow(sheetName, rowNum);
+		int lastCellNum = row.getLastCellNum();
+		for (int i = cellNum; i < lastCellNum; i++) {
+			data.add(row.getCell(i).toString());
+		}
+		return data;
+	}
 
+	/**
+	 * 
+	 * @param sheetName
+	 * @param rowNum
+	 * @return
+	 * @throws EncryptedDocumentException
+	 * @throws IOException
+	 */
+	public Row getRow(String sheetName, int rowNum) throws EncryptedDocumentException, IOException {
+		FileInputStream fis = new FileInputStream("./testdata/testScriptdata.xlsx");
+		Workbook wb = WorkbookFactory.create(fis);
+		Sheet sheet = wb.getSheet(sheetName);
+		Row row = sheet.getRow(rowNum);
+		return row;
+	}
 }
-
-
-
-
-
-

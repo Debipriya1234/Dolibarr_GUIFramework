@@ -1,17 +1,18 @@
 package com.dolibarr.erp.customertest;
 /**
  * @author REKHA GUPTA
- * Create a new contract for customer and validate the contract and activate contract for customer
  */
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import com.dolibarr.erp.generic.basetest.BaseClass;
 import com.dolibarr.erp.objectrepositoryutility.ContractForCustomerPage;
+import com.dolibarr.erp.objectrepositoryutility.CreateInvoicePage;
 import com.dolibarr.erp.objectrepositoryutility.CustomerInfoPage;
 import com.dolibarr.erp.objectrepositoryutility.CustomerPage;
 import com.dolibarr.erp.objectrepositoryutility.HomePage;
@@ -20,11 +21,9 @@ import com.dolibarr.erp.objectrepositoryutility.NewContractForCustomerPage;
 import com.dolibarr.erp.objectrepositoryutility.NewThirdPartyPage;
 import com.dolibarr.erp.objectrepositoryutility.Third_PartiesPage;
 
-public class CreateContractAndValidateAndActivateContractForCustomerTest extends BaseClass {
-	
+public class CreateInvoiceAndValidateTest extends BaseClass{
 	@Test
-	public void createContract() throws Throwable
-	{
+	public void createInvoice() throws Throwable {
 		/**
 		 * Fetching data from Excel
 		 */
@@ -35,13 +34,15 @@ public class CreateContractAndValidateAndActivateContractForCustomerTest extends
 		String discription = eLib.getDataFromExcel("ThirdParty",1, 6);
 		String netPrice = eLib.getDataFromExcel("ThirdParty",1, 7);
 		String statusOfService1 = eLib.getDataFromExcel("ThirdParty",1, 12);
-		String statusOfService_2 = eLib.getDataFromExcel("ThirdParty",1, 13);
+		String statusOfPayment1 = eLib.getDataFromExcel("ThirdParty",1, 15);
+		String statusOfPayment2 = eLib.getDataFromExcel("ThirdParty",1, 16);
 		/**
 		 * Navigating to Third-Parties Menu
 		 */
-        HomePage hp= new HomePage(driver);
-        hp.clickOnThirdPartiesMenu();
-        /**
+		HomePage hp=new HomePage(driver);
+		hp.clickOnThirdPartiesMenu();
+		
+		 /**
          * Creating new customer
          */
         Third_PartiesPage t=new Third_PartiesPage(driver);
@@ -99,21 +100,52 @@ public class CreateContractAndValidateAndActivateContractForCustomerTest extends
 		Assert.assertEquals(ActStatusOfService, statusOfService1);
 		Reporter.log(ActStatusOfService+"status is verified",true);
 		/**
-		 * Activate Contract
+		 * Create invoice
 		 */
-		ccp.getActivateContractLink().click();
-		ccp.getYesButton().click();
+		String invoiceDate = jLib.getSystemDateMMDDYYYY();
+		System.out.println(invoiceDate);
+		CreateInvoicePage cip1= new CreateInvoicePage(driver);
+		cip1.getCreate().click();
+		cip1.getCreateInvoiceLink().click();
+		cip1.getInvoiceDate().sendKeys(invoiceDate);
+		cip1.getPaymentTerms().click();
+		cip1.getSelectTerms().click();	
+		cip1.getDraftButton().click();
 		/**
-		 * Verify the status after activate the contract
+		 * validate and verify the invoice
 		 */
-		String ActivateStatus = ccp.getActivateStatus().getText();
-		Assert.assertEquals(ActivateStatus, statusOfService_2);
-		Reporter.log(ActivateStatus+"status is verified",true);
-        
-        
-        
-        
+		cip1.getValidateLink().click();
+		cip1.getYesButton().click();
+		String payStatus = cip1.getPaymentStatus().getText();
+		Assert.assertEquals(payStatus, statusOfPayment1);
+		Reporter.log(payStatus+"status is verified",true);
+		/**
+		 * Enter amount
+		 */
+		cip1.getEnterPaymentLink().click();
+		cip1.getInvoiceDate().sendKeys(invoiceDate);
+		cip1.getPaymentOption().click();
+		cip1.getCashOption().click();
+		String AmountToPay = cip1.getActualAmount().getText();
+		System.out.println("AmountToPay: "+AmountToPay);
+		WebElement PaymentAmountText = cip1.getPaymentAmount();
+		Actions action= new Actions(driver);
+		action.moveToElement(PaymentAmountText).click().sendKeys(AmountToPay).perform();
+		cip1.getPayButton().click();
+		cip1.confirmOption();
+		cip1.getValidateButton().click();
+		String paidStatus = cip1.getPaidAmount().getText();
+		Assert.assertEquals(paidStatus, statusOfPayment2);
+		Reporter.log(payStatus+"status is verified",true);
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
-	
 
 }

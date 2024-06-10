@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.dolibarr.erp.generic.basetest.BaseClass;
@@ -15,7 +16,7 @@ import com.dolibarr.erp.objectrepositoryutility.Third_PartiesPage;
 import com.dolibarr.erp.objectrepositoryutility.newContractforProspectPage;
 import com.dolibarr.erp.objectrepositoryutility.prosepectInfoTestPage;
 import com.dolibarr.erp.objectrepositoryutility.prospectPage;
-
+@Listeners(com.dolibarr.erp.generic.listenerutility.ListImpClass.class)
 public class createContractandActivateConTest extends BaseClass{
 @Test
 public void createContractandActivateConTest() throws Throwable  {
@@ -29,8 +30,9 @@ public void createContractandActivateConTest() throws Throwable  {
 	String Nprice=eLib.getDataFromExcel("ThirdParty",4,7);
 	String qty=eLib.getDataFromExcel("ThirdParty",4,8);
 	String dis=eLib.getDataFromExcel("ThirdParty",4,9);
-	String statusmsg=eLib.getDataFromExcel("ThirdParty",4,5);
-	String statusmsg1=eLib.getDataFromExcel("ThirdParty",4,10);
+	String statusmsg=eLib.getDataFromExcel("ThirdParty",4,11);
+	String statusmsg1=eLib.getDataFromExcel("ThirdParty",4,12);
+	String statusmsg2=eLib.getDataFromExcel("ThirdParty",4,13);
 	/**
 	 * create Prospect
 	 */
@@ -79,14 +81,26 @@ public void createContractandActivateConTest() throws Throwable  {
 	 */
 	String actmsg=cpip.getStatus().getText();
 	Assert.assertEquals(actmsg,statusmsg);
-	Reporter.log(actmsg+"status is verified",true);
+	Reporter.log(actmsg+"    status is verified",true);
 	/**
 	 * passing the values for prospect Contract
 	 */
 	cpip.addLineContract(discription, Nprice, qty, dis);
 	cpip.getValidate().click();
 	cpip.getYesButton().click();
-	
-	
+	/**
+	 * validating status after creating contract
+	 */
+	String actmsg1=cpip.getValidateafter().getText();
+	Assert.assertEquals(actmsg1,statusmsg1);
+	Reporter.log(actmsg1+"    verified",true);
+	cpip.getActivateContract().click();
+	cpip.getClickOnYes().click();
+	/**
+	 * validating status after activating the contract
+	 */
+	String actmsg2=cpip.getValidateactiveContract().getText();
+	Assert.assertEquals(actmsg2,statusmsg2);
+	Reporter.log(actmsg2+"  verified",true);
 	}
 }

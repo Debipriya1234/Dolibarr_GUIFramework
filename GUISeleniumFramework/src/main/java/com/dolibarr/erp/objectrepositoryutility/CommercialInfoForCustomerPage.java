@@ -5,10 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CommercialInfoPageForCustomer
+public class CommercialInfoForCustomerPage
 {
 	WebDriver driver;
-	public CommercialInfoPageForCustomer(WebDriver driver) 
+	public CommercialInfoForCustomerPage(WebDriver driver) 
 	{
 		this.driver= driver;
 		PageFactory.initElements(driver, this); 
@@ -34,10 +34,10 @@ public class CommercialInfoPageForCustomer
 	@FindBy(id="addline")
 	private WebElement addButton;
 	
-	@FindBy(xpath="//span[@title='Product']")
+	@FindBy(xpath="//li[text()='Product']")
 	private WebElement Product;
 	
-	@FindBy(linkText= "Validate")
+	@FindBy(xpath= "//a[text()='Validate']")
 	private WebElement validateLink;
 	
 	@FindBy(xpath= "//button[text()='Yes']")
@@ -101,7 +101,7 @@ public class CommercialInfoPageForCustomer
 	public void selectProduct()
 	{
 		getSelecttype().click();
-		getProduct();
+		getProduct().click();
 	}
 	
 	public void addLine(String dis,String netPrice, String Qty, String Discount )

@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.dolibarr.erp.generic.basetest.BaseClass;
-import com.dolibarr.erp.objectrepositoryutility.CommercialInfoPageForCustomer;
+import com.dolibarr.erp.objectrepositoryutility.CommercialInfoForCustomerPage;
 import com.dolibarr.erp.objectrepositoryutility.CustomerInfoPage;
 import com.dolibarr.erp.objectrepositoryutility.CustomerPage;
 import com.dolibarr.erp.objectrepositoryutility.HomePage;
@@ -63,16 +63,13 @@ public class CreateNewCustomerWithNewProposalAndValidateProposalTest extends Bas
          */
         CustomerPage cp = new CustomerPage(driver);
         cp.clickCreateProposal();
+        NewCommercialProposalForCustomerPage ncpc= new NewCommercialProposalForCustomerPage(driver);
+        ncpc.getRefCustomer().sendKeys(RefCust);
+        ncpc.getCreateDraftButton().click();
         /**
-         * Create a proposal for customer
+         * Verify the draft status
          */
-        String Date = jLib.getRequriedDateYYYYDDMM(15);
-        NewCommercialProposalForCustomerPage NCPCP = new NewCommercialProposalForCustomerPage(driver);
-        NCPCP.createProposal(RefCust, Date);
-        /**
-         * Validate the draft status
-         */
-        CommercialInfoPageForCustomer cipc = new CommercialInfoPageForCustomer(driver);
+        CommercialInfoForCustomerPage cipc = new CommercialInfoForCustomerPage(driver);
         String actMsg = cipc.getDrafttext().getText();
         Assert.assertEquals(actMsg, status1);
         /**

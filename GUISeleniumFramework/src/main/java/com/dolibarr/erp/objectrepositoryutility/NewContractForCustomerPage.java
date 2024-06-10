@@ -5,24 +5,26 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CustomerInfoPage 
+public class NewContractForCustomerPage 
 {
 	WebDriver driver;
-	public CustomerInfoPage(WebDriver driver) 
+	public NewContractForCustomerPage(WebDriver driver) 
 	{
 		this.driver= driver;
 		PageFactory.initElements(driver, this); 
 	}
+	@FindBy (id="ref_customer")
+	private WebElement refCust;
 	
-	@FindBy (linkText= "Customer")
-	private WebElement CustomerLink;
+	@FindBy (name="add")
+	private WebElement createButton;
 	
-	public WebDriver getDriver() {
-		return driver;
+	public WebElement getRefCust() {
+		return refCust;
 	}
 
-	public WebElement getCustomerLink() {
-		return CustomerLink;
+	public WebElement getCreateButton() {
+		return createButton;
 	}
 	
 	

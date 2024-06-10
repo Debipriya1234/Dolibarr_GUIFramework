@@ -42,8 +42,7 @@ public class NewCommercialProposalForCustomerPage
 	public void createProposal(String rfcs, String date)
 	{
 		getRefCustomer().sendKeys(rfcs);
-		getProposalDate().clear();
-		getProposalDate().sendKeys(date);
+	
 		getCreateDraftButton().click();
 	}
 	

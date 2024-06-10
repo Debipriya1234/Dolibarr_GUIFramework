@@ -5,26 +5,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CustomerInfoPage 
-{
+public class createOrderPage {
 	WebDriver driver;
-	public CustomerInfoPage(WebDriver driver) 
+	public createOrderPage(WebDriver driver) 
 	{
 		this.driver= driver;
 		PageFactory.initElements(driver, this); 
 	}
-	
-	@FindBy (linkText= "Customer")
-	private WebElement CustomerLink;
-	
-	public WebDriver getDriver() {
-		return driver;
+	@FindBy(name="ref_client")
+	private WebElement ref_customer;
+	@FindBy(name="save")
+	private WebElement save;
+	public WebElement getRef_customer() {
+		return ref_customer;
 	}
-
-	public WebElement getCustomerLink() {
-		return CustomerLink;
+	public WebElement getSave() {
+		return save;
 	}
-	
-	
-
 }

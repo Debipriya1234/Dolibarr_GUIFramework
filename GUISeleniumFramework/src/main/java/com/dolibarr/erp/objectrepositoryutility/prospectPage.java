@@ -16,10 +16,17 @@ public class prospectPage {
 	private WebElement createProposal;
 	@FindBy(xpath="//a[text()='Create contract']")
 	private WebElement createcontract;
+	@FindBy(xpath="//a[text()='Create order']")
+	private WebElement createorder;
+	
 	public WebElement getCreateProposal() {
 		return createProposal;
 	}
 	public WebElement getCreateContract() {
 		return createcontract;
 	}
+	public WebElement getCreateorder() {
+		return createorder;
+	}
+	
 }

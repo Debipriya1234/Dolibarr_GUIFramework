@@ -42,9 +42,14 @@ private WebElement validate;
 @FindBy(xpath="//button[text()='Yes']")
 private WebElement yesButton;
 
-@FindBy(xpath="//span[contains(@title,'Validated')]")
+@FindBy(xpath="//span[text()='Not running']")
 private WebElement validateafter;
-
+@FindBy(xpath="//a[text()='Activate all contract lines']")
+private WebElement activateContract;
+@FindBy(xpath="//button[text()='Yes']")
+private WebElement clickOnYes;
+@FindBy(xpath="//span[text()='Running']")
+private WebElement validateactiveContract;
 public WebElement getStatus() {
 	return status;
 }
@@ -82,6 +87,19 @@ public WebElement getValidate() {
 
 public WebElement getValidateafter() {
 	return validateafter;
+}
+
+public WebElement getActivateContract() {
+	return activateContract;
+}
+public WebElement getClickOnYes() {
+	return clickOnYes;
+}
+public WebElement getValidateactiveContract() {
+	return validateactiveContract;
+}
+public void setValidateafter(WebElement validateafter) {
+	this.validateafter = validateafter;
 }
 public void addLine(String discription,String Nprice,String qty,String dis) {
 	getFreeTextItem().click();

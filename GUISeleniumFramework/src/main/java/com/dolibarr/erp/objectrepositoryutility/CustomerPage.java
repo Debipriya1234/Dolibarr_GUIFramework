@@ -23,6 +23,10 @@ public class CustomerPage
 	
 	@FindBy (xpath= "//a[text()='Create contract']")
 	private WebElement CreateContractLink;
+	
+	@FindBy(xpath="//a[text()='Create invoice or credit note']")
+	private WebElement createInvoiceLink;
+	
 	public WebDriver getDriver() {
 		return driver;
 	}
@@ -39,6 +43,11 @@ public class CustomerPage
 		return CreateContractLink;
 	}
 	
+	
+	public WebElement getCreateInvoiceLink() {
+		return createInvoiceLink;
+	}
+
 	public void clickCreateProposal()
 	{
 		Actions action= new Actions(driver);

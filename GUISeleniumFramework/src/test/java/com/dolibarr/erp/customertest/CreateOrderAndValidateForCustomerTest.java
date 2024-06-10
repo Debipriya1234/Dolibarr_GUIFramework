@@ -1,8 +1,4 @@
 package com.dolibarr.erp.customertest;
-/**
- * @author REKHA GUPTA
- * Create a new contract for customer and validate the contract and activate contract for customer
- */
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -11,18 +7,18 @@ import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import com.dolibarr.erp.generic.basetest.BaseClass;
-import com.dolibarr.erp.objectrepositoryutility.ContractForCustomerPage;
 import com.dolibarr.erp.objectrepositoryutility.CustomerInfoPage;
 import com.dolibarr.erp.objectrepositoryutility.CustomerPage;
 import com.dolibarr.erp.objectrepositoryutility.HomePage;
 import com.dolibarr.erp.objectrepositoryutility.ListOfCustomerPage;
-import com.dolibarr.erp.objectrepositoryutility.NewContractForCustomerPage;
 import com.dolibarr.erp.objectrepositoryutility.NewThirdPartyPage;
 import com.dolibarr.erp.objectrepositoryutility.Third_PartiesPage;
+import com.dolibarr.erp.objectrepositoryutility.createOrderPage;
+import com.dolibarr.erp.objectrepositoryutility.salesOrderPage;
 
-public class CreateContractAndValidateAndActivateContractForCustomerTest extends BaseClass {
-	
-	@Test
+public class CreateOrderAndValidateForCustomerTest extends BaseClass
+{
+	@Test 
 	public void createContract() throws Throwable
 	{
 		/**
@@ -31,11 +27,13 @@ public class CreateContractAndValidateAndActivateContractForCustomerTest extends
 		String CName = eLib.getDataFromExcel("ThirdParty",1, 2) + jLib.getRandomNumber();
 		String CityName = eLib.getDataFromExcel("ThirdParty",1, 3);
 		String RefCust = eLib.getDataFromExcel("ThirdParty",1, 4) + jLib.getRandomNumber();
-		String status = eLib.getDataFromExcel("ThirdParty",1, 11);
+		String status = eLib.getDataFromExcel("ThirdParty",1, 5);
 		String discription = eLib.getDataFromExcel("ThirdParty",1, 6);
 		String netPrice = eLib.getDataFromExcel("ThirdParty",1, 7);
-		String statusOfService1 = eLib.getDataFromExcel("ThirdParty",1, 12);
-		String statusOfService_2 = eLib.getDataFromExcel("ThirdParty",1, 13);
+		String Qty = eLib.getDataFromExcel("ThirdParty",1, 8);
+		String Discount = eLib.getDataFromExcel("ThirdParty",1, 9);
+		String statusmsg1=eLib.getDataFromExcel("ThirdParty",4,15);
+
 		/**
 		 * Navigating to Third-Parties Menu
 		 */
@@ -66,54 +64,48 @@ public class CreateContractAndValidateAndActivateContractForCustomerTest extends
         CustomerInfoPage cip= new CustomerInfoPage(driver);
         cip.getCustomerLink().click();
         /**
-         * Click on create contract link
+         * Click on create order link
          */
         CustomerPage cp= new CustomerPage(driver);
-        cp.getCreateContractLink().click();
+        cp.getCreateOrderLink().click();
         /**
-         * create contract
+         * Create Order for customer
          */
-        NewContractForCustomerPage nccp= new NewContractForCustomerPage(driver);
-        nccp.getRefCust().sendKeys(RefCust);
-        nccp.getCreateButton().click();
+        createOrderPage cop= new createOrderPage(driver);
+        cop.getRef_customer().sendKeys(RefCust);
+        cop.getSave().click();
         /**
-         * Verify the status 
+         * Verify draft status for order
          */
-        ContractForCustomerPage ccp= new ContractForCustomerPage(driver);
-        String draftstatus = ccp.getDraftStatus().getText();
-        Assert.assertEquals(draftstatus, status);
-        Reporter.log(draftstatus+"status is verified",true);
+        salesOrderPage sop= new salesOrderPage(driver);
+        String draftStatus = sop.getStatus().getText();
+        Assert.assertEquals(draftStatus, status);
+        Reporter.log(draftStatus+"status is verified",true);
         /**
-         * Add line for contract
+         * Validate the order
          */
-        ccp.addline(discription, netPrice);
+        sop.addLine(discription, netPrice, Qty, Discount);
+        sop.getValidate().click();
+        sop.getYesButton().click();
         /**
-         * Validate the contract
+         * Verify the Validate status
          */
-		ccp.getValidateLink().click();
-		ccp.getYesButton().click();
-		/**
-		 * verify the status of service after validate
-		 */
-		String ActStatusOfService = ccp.getStatusofService().getText();
-		Assert.assertEquals(ActStatusOfService, statusOfService1);
-		Reporter.log(ActStatusOfService+"status is verified",true);
-		/**
-		 * Activate Contract
-		 */
-		ccp.getActivateContractLink().click();
-		ccp.getYesButton().click();
-		/**
-		 * Verify the status after activate the contract
-		 */
-		String ActivateStatus = ccp.getActivateStatus().getText();
-		Assert.assertEquals(ActivateStatus, statusOfService_2);
-		Reporter.log(ActivateStatus+"status is verified",true);
+       String Actstatusmsg = sop.getAftervalidatestatus().getText();
+       Assert.assertEquals(Actstatusmsg, statusmsg1);
+       Reporter.log(draftStatus+"status is verified",true);
         
         
         
         
-	}
-	
-
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+}
 }
