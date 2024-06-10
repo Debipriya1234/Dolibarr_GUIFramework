@@ -48,6 +48,8 @@ public class HomePage {
 	private WebElement Newmanufacturingorder;
 	@FindBy(xpath = "(//a[@title='List'])[2]")
 	private WebElement List1;
+	@FindBy(id = "mainmenua_products")
+	private WebElement productsAndServicesMenu;
 
 	public WebElement getNewgroup() {
 		return Newgroup;
@@ -56,9 +58,38 @@ public class HomePage {
 	public WebElement getUsersandGroups() {
 		return UsersandGroups;
 	}
+	
+    public WebElement getNewuser() {
+		return Newuser;
+	}
+      
+    public WebElement getListofgroups() {
+		return Listofgroups;
+	}
+    
+    public WebElement getMRP() {
+		return MRP;
+	}
+    
 
-	@FindBy(id = "mainmenua_products")
-	private WebElement productsAndServicesMenu;
+	public WebElement getNewbillofmaterials() {
+		return Newbillofmaterials;
+	}
+	
+
+	public WebElement getNewmanufacturingorder() {
+		return Newmanufacturingorder;
+	}
+	
+
+	public WebElement getList() {
+		return List;
+	}
+	
+
+	public WebElement getList1() {
+		return List1;
+	}
 
 	public WebElement getProductsAndServicesMenu() {
 		return productsAndServicesMenu;
@@ -88,5 +119,33 @@ public class HomePage {
 
 	public void clickOnProductsAndServicesMenu() {
 		getProductsAndServicesMenu().click();
+	}
+	
+	public void clickOnMRP() {
+		getMRP().click();
+	}
+	public void clickOnNewmanufacturingorder() {
+		getNewmanufacturingorder().click();
+	}
+	public void clickOnList1() {
+		getList1().click();
+	}
+	public void clickOnNewbillofmaterials() {
+		getNewbillofmaterials().click();
+	}
+	public void clickOnList() {
+		getList().click();
+	}
+	public void clickOnUsersandGroups() {
+		getUsersandGroups().click();
+	}
+	public void clickOnNewgroup() {
+		getNewgroup().click();
+	}
+	public void clickOnNewuser() {
+		getNewuser().click();
+	}
+	public void clickOnListofgroups() {
+		getListofgroups().click();
 	}
 }
