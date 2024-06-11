@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class newContractforProspectPage {
+public class NewContractForProspectPage {
 
-	public newContractforProspectPage(WebDriver driver) {
+	public NewContractForProspectPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	@FindBy(id="ref_customer")

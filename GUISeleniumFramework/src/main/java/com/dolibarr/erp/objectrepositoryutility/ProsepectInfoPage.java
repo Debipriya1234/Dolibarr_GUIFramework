@@ -5,10 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class prosepectInfoTest {
+public class ProsepectInfoPage {
 	
 	WebDriver driver;
-	public prosepectInfoTest(WebDriver driver) {
+	public ProsepectInfoPage(WebDriver driver) {
 		PageFactory.initElements(driver,this);
 	}
 
@@ -17,6 +17,10 @@ public class prosepectInfoTest {
 
 	public WebElement getProspectInfo() {
 		return prospectInfo;
+	}
+	
+	public void goToProspectTab() {
+		getProspectInfo().click();
 	}
 	
 }

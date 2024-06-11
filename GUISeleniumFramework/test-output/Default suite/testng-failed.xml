@@ -3,30 +3,21 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-<<<<<<< HEAD
       <class name="com.dolibarr.erp.creategroupanduser.CreateUserandGroupandVerifyForSalesTest">
-=======
-      <class name="com.dolibarr.erp.products_and_services.ProductsAndServicesTest">
->>>>>>> branch 'Testing' of https://github.com/Debipriya1234/Dolibarr_GUIFramework.git
+      <class name="com.dolibarr.erp.prospectTest.CreateProspectTest">
         <methods>
           <include name="createUserandGroupForSales"/>
           <include name="configBC"/>
           <include name="configBS"/>
           <include name="configAC"/>
           <include name="configAS"/>
-          <include name="CreateServicesAndVerifyInList"/>
           <include name="configBM"/>
           <include name="configAM"/>
-<<<<<<< HEAD
-=======
           <include name="CreateWarehouseAndProductAndVerify"/>
->>>>>>> branch 'Testing' of https://github.com/Debipriya1234/Dolibarr_GUIFramework.git
         </methods>
-<<<<<<< HEAD
-      </class> <!-- com.dolibarr.erp.creategroupanduser.CreateUserandGroupandVerifyForSalesTest -->
-=======
-      </class> <!-- com.dolibarr.erp.products_and_services.ProductsAndServicesTest -->
->>>>>>> branch 'Testing' of https://github.com/Debipriya1234/Dolibarr_GUIFramework.git
+          <include name="CreateInvoiceAndPaymentAndValidateForProspect"/>
+        </methods>
+      </class> <!-- com.dolibarr.erp.prospectTest.CreateProspectTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

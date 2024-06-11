@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Third_PartiesPage {
+public class ThirdPartiesPage {
 	
 	WebDriver driver;
 
-	public Third_PartiesPage(WebDriver driver) {
+	public ThirdPartiesPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
