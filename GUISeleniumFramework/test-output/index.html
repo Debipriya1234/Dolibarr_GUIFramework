@@ -50,6 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
+                    <span>C:\Users\HP\AppData\Local\Temp\testng-eclipse--584433356\testng-customsuite.xml</span>
                     <span>C:\Users\CHIDUSD\AppData\Local\Temp\testng-eclipse-413041823\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
@@ -103,6 +104,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.dolibarr.erp.creategroupanduser.CreateNewManufacturingOrderForMRPTest" class="method navigator-link" hash-for-method="createNewManufacturingOrderForMRP">createNewManufacturingOrderForMRP</a> <!-- method navigator-link -->
                         <a href="#" panel-name="suite-Default_suite" title="com.dolibarr.erp.prospectTest.CreateProspectTest" class="method navigator-link" hash-for-method="CreateInvoiceAndPaymentAndValidateForProspect">CreateInvoiceAndPaymentAndValidateForProspect</a> <!-- method navigator-link -->
                       </span>
                       <br/>
@@ -121,14 +123,20 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
+              <span class="class-name">com.dolibarr.erp.creategroupanduser.CreateNewManufacturingOrderForMRPTest</span>
               <span class="class-name">com.dolibarr.erp.prospectTest.CreateProspectTest</span>
+
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="createNewManufacturingOrderForMRP">
+                  </a> <!-- createNewManufacturingOrderForMRP -->
+                  <span class="method-name">createNewManufacturingOrderForMRP</span>
                   <a name="CreateInvoiceAndPaymentAndValidateForProspect">
                   </a> <!-- CreateInvoiceAndPaymentAndValidateForProspect -->
                   <span class="method-name">CreateInvoiceAndPaymentAndValidateForProspect</span>
+
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -136,7 +144,10 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
+
+            <span class="header-content">C:\Users\HP\AppData\Local\Temp\testng-eclipse--584433356\testng-customsuite.xml</span>
             <span class="header-content">C:\Users\CHIDUSD\AppData\Local\Temp\testng-eclipse-413041823\testng-customsuite.xml</span>
+
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -145,7 +156,9 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
+      &lt;class name=&quot;com.dolibarr.erp.creategroupanduser.CreateNewManufacturingOrderForMRPTest&quot;/&gt;
       &lt;class name=&quot;com.dolibarr.erp.prospectTest.CreateProspectTest&quot;/&gt;
+
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -187,14 +200,22 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
+data.setCell(0, 1, 'createNewManufacturingOrderForMRP')
+data.setCell(0, 2, 'com.dolibarr.erp.creategroupanduser.CreateNewManufacturingOrderForMRPTest')
+data.setCell(0, 3, 3947);
 data.setCell(0, 1, 'CreateInvoiceAndPaymentAndValidateForProspect')
 data.setCell(0, 2, 'com.dolibarr.erp.prospectTest.CreateProspectTest')
 data.setCell(0, 3, 20773);
+
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
+
+              <span class="suite-total-time">Total running time: 3 seconds</span>
+
               <span class="suite-total-time">Total running time: 20 seconds</span>
+
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -227,13 +248,35 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
+              <div class="chronological-class-name">com.dolibarr.erp.creategroupanduser.CreateNewManufacturingOrderForMRPTest</div> <!-- chronological-class-name -->
               <div class="chronological-class-name">com.dolibarr.erp.prospectTest.CreateProspectTest</div> <!-- chronological-class-name -->
+
               <div class="configuration-suite before">
                 <span class="method-name">configBS</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-class before">
                 <span class="method-name">configBC</span>
+                <span class="method-start">54 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">configBM</span>
+
+                <span class="method-start">2564 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+
+                <span class="method-name">createNewManufacturingOrderForMRP</span>
+                <span class="method-start">3847 ms</span>
+
+                <span class="method-name">CreateWarehouseAndProductAndVerify</span>
+                <span class="method-start">33972 ms</span>
+
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">configAM</span>
+
+                <span class="method-start">7801 ms</span>
                 <span class="method-start">430 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
@@ -246,6 +289,19 @@ return data;
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">configAM</span>
+
+                <span class="method-start">134295 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-class after">
+                <span class="method-name">configAC</span>
+
+           <span class="method-start">8463 ms</span>
+                <span class="method-start">135927 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-suite after">
+                <span class="method-name">configAS</span>
+
+                <span class="method-start">8764 ms</span>
                 <span class="method-start">47948 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
@@ -255,6 +311,7 @@ return data;
               <div class="configuration-suite after">
                 <span class="method-name">configAS</span>
                 <span class="method-start">54554 ms</span>
+
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

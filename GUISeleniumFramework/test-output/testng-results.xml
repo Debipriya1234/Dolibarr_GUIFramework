@@ -2,6 +2,87 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
+
+  <suite started-at="2024-06-08T22:33:58 IST" name="Default suite" finished-at="2024-06-08T22:34:07 IST" duration-ms="8671">
+
+  <suite started-at="2024-06-06T15:18:47 IST" name="Default suite" finished-at="2024-06-06T15:21:04 IST" duration-ms="137169">
+
+    <groups>
+    </groups>
+
+    <test started-at="2024-06-08T22:33:58 IST" name="Default test" finished-at="2024-06-08T22:34:07 IST" duration-ms="8671">
+      <class name="com.dolibarr.erp.creategroupanduser.CreateNewManufacturingOrderForMRPTest">
+        <test-method is-config="true" signature="configBS()[pri:0, instance:com.dolibarr.erp.creategroupanduser.CreateNewManufacturingOrderForMRPTest@5e5d171f]" started-at="2024-06-08T22:33:58 IST" name="configBS" finished-at="2024-06-08T22:33:58 IST" duration-ms="27" status="PASS">
+
+    <test started-at="2024-06-06T15:18:47 IST" name="Default test" finished-at="2024-06-06T15:21:04 IST" duration-ms="137169">
+      <class name="com.dolibarr.erp.products_and_services.ProductsAndServicesTest">
+        <test-method is-config="true" signature="configBS()[pri:0, instance:com.dolibarr.erp.products_and_services.ProductsAndServicesTest@312aa7c]" started-at="2024-06-06T15:18:46 IST" name="configBS" finished-at="2024-06-06T15:18:47 IST" duration-ms="866" status="PASS">
+
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configBS -->
+
+        <test-method is-config="true" signature="configBC()[pri:0, instance:com.dolibarr.erp.creategroupanduser.CreateNewManufacturingOrderForMRPTest@5e5d171f]" started-at="2024-06-08T22:33:58 IST" name="configBC" finished-at="2024-06-08T22:34:01 IST" duration-ms="2490" status="PASS">
+
+        <test-method is-config="true" signature="configBC()[pri:0, instance:com.dolibarr.erp.products_and_services.ProductsAndServicesTest@312aa7c]" started-at="2024-06-06T15:18:47 IST" name="configBC" finished-at="2024-06-06T15:19:06 IST" duration-ms="18404" status="PASS">
+
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configBC -->
+
+        <test-method is-config="true" signature="configBM()[pri:0, instance:com.dolibarr.erp.creategroupanduser.CreateNewManufacturingOrderForMRPTest@5e5d171f]" started-at="2024-06-08T22:34:01 IST" name="configBM" finished-at="2024-06-08T22:34:02 IST" duration-ms="1280" status="PASS">
+
+        <test-method is-config="true" signature="configBM()[pri:0, instance:com.dolibarr.erp.products_and_services.ProductsAndServicesTest@312aa7c]" started-at="2024-06-06T15:19:06 IST" name="configBM" finished-at="2024-06-06T15:19:20 IST" duration-ms="14309" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configBM -->
+
+        <test-method signature="createNewManufacturingOrderForMRP()[pri:0, instance:com.dolibarr.erp.creategroupanduser.CreateNewManufacturingOrderForMRPTest@5e5d171f]" started-at="2024-06-08T22:34:02 IST" name="createNewManufacturingOrderForMRP" finished-at="2024-06-08T22:34:06 IST" duration-ms="3947" status="PASS">
+
+        <test-method signature="CreateWarehouseAndProductAndVerify()[pri:-1, instance:com.dolibarr.erp.products_and_services.ProductsAndServicesTest@312aa7c]" started-at="2024-06-06T15:19:20 IST" name="CreateWarehouseAndProductAndVerify" finished-at="2024-06-06T15:20:31 IST" duration-ms="71442" status="PASS">
+
+          <reporter-output>
+          </reporter-output>
+
+        </test-method> <!-- createNewManufacturingOrderForMRP -->
+        <test-method is-config="true" signature="configAM()[pri:0, instance:com.dolibarr.erp.creategroupanduser.CreateNewManufacturingOrderForMRPTest@5e5d171f]" started-at="2024-06-08T22:34:06 IST" name="configAM" finished-at="2024-06-08T22:34:07 IST" duration-ms="662" status="PASS">
+
+        </test-method> <!-- CreateWarehouseAndProductAndVerify -->
+        <test-method is-config="true" signature="configAM()[pri:0, instance:com.dolibarr.erp.products_and_services.ProductsAndServicesTest@312aa7c]" started-at="2024-06-06T15:20:31 IST" name="configAM" finished-at="2024-06-06T15:20:34 IST" duration-ms="2133" status="PASS">
+
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configAM -->
+
+        <test-method is-config="true" signature="configAC()[pri:0, instance:com.dolibarr.erp.creategroupanduser.CreateNewManufacturingOrderForMRPTest@5e5d171f]" started-at="2024-06-08T22:34:07 IST" name="configAC" finished-at="2024-06-08T22:34:07 IST" duration-ms="237" status="PASS">
+
+        <test-method is-config="true" signature="configBM()[pri:0, instance:com.dolibarr.erp.products_and_services.ProductsAndServicesTest@312aa7c]" started-at="2024-06-06T15:20:34 IST" name="configBM" finished-at="2024-06-06T15:20:38 IST" duration-ms="4697" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configBM -->
+        <test-method signature="CreateServicesAndVerifyInList()[pri:0, instance:com.dolibarr.erp.products_and_services.ProductsAndServicesTest@312aa7c]" started-at="2024-06-06T15:20:38 IST" name="CreateServicesAndVerifyInList" finished-at="2024-06-06T15:21:00 IST" duration-ms="21983" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateServicesAndVerifyInList -->
+        <test-method is-config="true" signature="configAM()[pri:0, instance:com.dolibarr.erp.products_and_services.ProductsAndServicesTest@312aa7c]" started-at="2024-06-06T15:21:00 IST" name="configAM" finished-at="2024-06-06T15:21:02 IST" duration-ms="1617" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configAM -->
+        <test-method is-config="true" signature="configAC()[pri:0, instance:com.dolibarr.erp.products_and_services.ProductsAndServicesTest@312aa7c]" started-at="2024-06-06T15:21:02 IST" name="configAC" finished-at="2024-06-06T15:21:04 IST" duration-ms="2162" status="PASS">
+
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configAC -->
+
+        <test-method is-config="true" signature="configAS()[pri:0, instance:com.dolibarr.erp.creategroupanduser.CreateNewManufacturingOrderForMRPTest@5e5d171f]" started-at="2024-06-08T22:34:07 IST" name="configAS" finished-at="2024-06-08T22:34:07 IST" duration-ms="0" status="PASS">
+
+        <test-method is-config="true" signature="configAS()[pri:0, instance:com.dolibarr.erp.products_and_services.ProductsAndServicesTest@312aa7c]" started-at="2024-06-06T15:21:04 IST" name="configAS" finished-at="2024-06-06T15:21:04 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configAS -->
+
+      </class> <!-- com.dolibarr.erp.creategroupanduser.CreateNewManufacturingOrderForMRPTest -->
+
   <suite started-at="2024-06-10T00:18:00 IST" name="Default suite" finished-at="2024-06-10T00:18:54 IST" duration-ms="54219">
     <groups>
     </groups>
@@ -36,6 +117,7 @@
           </reporter-output>
         </test-method> <!-- configAS -->
       </class> <!-- com.dolibarr.erp.prospectTest.CreateProspectTest -->
+
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
